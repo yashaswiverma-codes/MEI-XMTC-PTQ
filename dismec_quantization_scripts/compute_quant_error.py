@@ -9,16 +9,7 @@ Same logic as the previous version, with two fixes applied:
      (confirmed on delicious200k; the same risk applies to amazon670k
      and any other large dataset run through this generic script).
 
-  2. TRUNCATION SAFETY: --max-rows now defaults to 0 (= full dataset),
-     not 10000. The old 10000 default silently truncated any dataset
-     with more rows than that (amazon670k: 670,090 rows; wiki10: 30,937
-     rows; amazoncat13k: 13,329 rows) with NO warning — results for
-     those datasets may have been computed on a small, non-representative
-     prefix rather than the full set. Check existing output JSONs'
-     "n_rows" field against each dataset's true row count before trusting
-     old results; rerun with this version to get full-dataset numbers.
-
-  3. INDEX OFFSET IS EXPLICIT, NOT ASSUMED: added --one-based / --zero-based
+  2. INDEX OFFSET IS EXPLICIT, NOT ASSUMED: added --one-based / --zero-based
      (via datasets_config.json's "one_based" field, or --one-based CLI flag
      in single-dataset mode). Per run_pipeline.sh's ONE_BASED settings:
        eurlex, wiki10, amazoncat13k, amazon670k -> one_based = true

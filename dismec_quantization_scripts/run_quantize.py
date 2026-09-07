@@ -20,23 +20,6 @@ Usage:
       --out-dir    /path/to/results/delicious200k/models \
       --chunked \
       --chunk-size 10000
-
-  # Large split files (Amazon-3M):
-  python3 run_quantize.py \
-      --weights-dir /path/to/split_weights_dir \
-      --test        /path/to/test.txt \
-      --out-dir     /path/to/results/amazon3m/models \
-      --chunked
-
-  # Resume after interrupted chunked run:
-  python3 run_quantize.py \
-      --test     /path/to/test.txt \
-      --out-dir  /path/to/results/amazon3m/models \
-      --merge-only
-
-  # Single config only:
-  python3 run_quantize.py --weights ... --test ... --out-dir ... \
-      --config int8_row_sym
 """
 
 import argparse

@@ -5,16 +5,6 @@
 # (single-dataset mode), instead of one long-lived process looping over
 # all 5 via --datasets-config.
 #
-# WHY: del + gc.collect() inside the long-lived process only frees
-# Python-level references. glibc's malloc allocator can still retain
-# freed heap arenas internally rather than returning them to the OS —
-# so RSS climbs across dataset iterations even though live memory is
-# small and bounded. Confirmed: RSS hit ~140GB after only eurlex+
-# wiki10+amazoncat13k finished (combined data is a few hundred MB at
-# most), before amazon670k even started. Spawning a fresh process per
-# dataset guarantees the OS reclaims ALL memory on exit, sidestepping
-# the allocator-retention issue entirely rather than trying to out-fix
-# it from inside Python.
 #
 # Usage:
 #   bash run_quant_error_per_dataset.sh datasets_config.json

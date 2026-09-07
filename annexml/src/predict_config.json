@@ -1,0 +1,7 @@
+{
+  "mode": "predict",
+  "model_file": "../annexml-model-test-Amazon670K_bow.bin",
+  "predict_file": "/DATA/rudra1/AnnexML/annexml-result-test-Amazon670K_bow.txt",
+  "result_file": "/DATA/rudra1/AnnexML/annexml-result-test-Amazon670K_bow_90_predictions.txt",
+  "num_thread": 8
+}

@@ -1,0 +1,23 @@
+{
+    "emb_size" : 50,
+    "num_learner" : 15,
+    "num_nn" : 10,
+    "cls_type" : 1,
+    "cls_iter" : 10,
+    "emb_iter" : 10,
+    "label_normalize" : 1,
+    "eta0" : 0.1,
+    "lambda" : 4.0,
+    "gamma" : 10.0,
+    "pred_type" : 1,
+    "num_edge" : 50,
+    "search_eps" : 0.0,
+    "num_thread" : 15,
+    "seed" : 0,
+    "verbose" : 1,
+
+    "train_file" :"/DATA2/rudra1/AnnexML/data/wiki10/train.txt",
+    "predict_file" :"/DATA2/rudra1/AnnexML/data/wiki10/test.txt",
+    "model_file" : "annexml-model-wiki10_baseline.bin",
+    "result_file" : "annexml-result-wiki10_baseline.txt"
+}

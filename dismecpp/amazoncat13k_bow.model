@@ -1,0 +1,13 @@
+{
+    "date": "2025-11-13 - 10:13:46",
+    "files": [
+        {
+            "count": 13330,
+            "file": "amazoncat13k_bow.model.weights-0-13329",
+            "first": 0,
+            "weight-format": "SparseTXT"
+        }
+    ],
+    "num-features": 203884,
+    "num-labels": 13330
+}

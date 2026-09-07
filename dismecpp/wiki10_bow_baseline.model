@@ -1,0 +1,13 @@
+{
+    "date": "2026-05-06 - 06:46:55",
+    "files": [
+        {
+            "count": 30938,
+            "file": "wiki10_bow_baseline.model.weights-0-30937",
+            "first": 0,
+            "weight-format": "SparseTXT"
+        }
+    ],
+    "num-features": 101939,
+    "num-labels": 30938
+}

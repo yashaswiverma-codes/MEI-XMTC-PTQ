@@ -1,0 +1,13 @@
+{
+    "date": "2026-05-05 - 21:26:50",
+    "files": [
+        {
+            "count": 3993,
+            "file": "eurlex_bow_baseline.model.weights-0-3992",
+            "first": 0,
+            "weight-format": "SparseTXT"
+        }
+    ],
+    "num-features": 5002,
+    "num-labels": 3993
+}

@@ -1,0 +1,13 @@
+{
+    "date": "2026-06-05 - 10:05:49",
+    "files": [
+        {
+            "count": 205443,
+            "file": "delicious_bow_baseline.model.weights-0-205442",
+            "first": 0,
+            "weight-format": "SparseTXT"
+        }
+    ],
+    "num-features": 782586,
+    "num-labels": 205443
+}

@@ -1,0 +1,13 @@
+{
+    "date": "2026-01-21 - 20:40:52",
+    "files": [
+        {
+            "count": 670091,
+            "file": "amazon670k_bow.model.weights-0-670090",
+            "first": 0,
+            "weight-format": "SparseTXT"
+        }
+    ],
+    "num-features": 135910,
+    "num-labels": 670091
+}

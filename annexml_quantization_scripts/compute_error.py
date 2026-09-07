@@ -44,13 +44,6 @@ Run:
     cd /DATA2/rudra1/AnnexML/quantization/intinference
     python3 compute_quant_error.py 2>&1 | tee quant_error_log.txt
 
-Defaults now load the FULL test file per dataset (no 500-sample cap on the
-raw file read), but rank-change queries default back to 200 samples — this
-was reverted after hitting an OOM (7.35M aggregated embedding rows x 152,960
-queries = 4TiB score matrix) on delicious200k. Raising --n-queries or
-setting it to "use all" only makes sense on small datasets, or combined
-with --max-cluster-rows-for-rank to bound the other dimension too.
-
 Optional CLI (defaults to ALL 5 datasets, ALL test samples loaded, 200
 rank-change queries, if omitted):
     python3 compute_quant_error.py --datasets eurlex wiki10

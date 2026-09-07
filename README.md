@@ -4,12 +4,12 @@
 
 Official code release accompanying the paper (IEEE DSAA 2026, Short Presentation).
 
-This repository implements Post-Training Quantization (PTQ) for two Extreme Multi-Label Classification (XMC) methods — **DiSMEC++** and **AnnexML** — evaluated across standard XMC benchmark datasets.
+This repository implements Post-Training Quantization (PTQ) for two Extreme Multi-Label Classification (XMTC) methods — **DiSMEC** and **AnnexML** — evaluated across standard XMTC benchmark datasets.
 
 ## Repository Structure
 
 ```
-├── dismecpp/                          # DiSMEC++ PTQ implementation
+├── dismecpp/                          # DiSMEC PTQ implementation
 │   ├── src/                           # Source code (including bundled cnpy library)
 │   ├── data/eurlex/                   # Sample dataset (EURLex-4K only — see Datasets below)
 │   ├── test/                          # Test fixtures

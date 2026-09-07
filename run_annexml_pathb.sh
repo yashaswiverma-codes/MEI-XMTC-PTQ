@@ -5,9 +5,6 @@
 #
 # Uses quant_annexml_intinfer_multibatch_v2 --act_quant:
 #   - Keeps embeddings as INT8 (no dequantization)
-#   - Uses AnnexML's NGT graph for ANN search with INT8 queries
-#   - Expected: accuracy PRESERVED — NGT uses original float graph (correct candidates) + INT8x INT8 scoring only
-#   - This motivates INT8-native HNSW approach
 #
 # Usage:
 #   bash run_annexml_pathb.sh wiki10

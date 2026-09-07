@@ -1,25 +1,7 @@
 #!/bin/bash
 # run_inference_timing_stage4.sh
 # =======================
-# Same methodology as run_inference_timing.sh (3 seeds x {100,500,1000}
-# subsamples, no extrapolation), with ONE substitution: Path B now runs
-# through quant_infer_dismec_v2_stage4_sparsequant -- our verified
-# kernel (memory layout fix + AVX2 + heap top-k + sparse-direct
-# quantization) -- instead of quant_infer_dismec_v2_fixed.
-#
-# Path A logic is UNCHANGED from the reference script: dequant NPZ ->
-# FP32 weights -> time the real predict binary. That methodology was
-# already correct (it's what actually produced the historical
-# baseline numbers) and has nothing to do with the Path B kernel work,
-# so it's left exactly as-is.
-#
-# IMPORTANT: output directory is a NEW path (inference_timing_stage4,
-# not inference_timing), specifically so this run's caching can never
-# silently read stale .cache files left behind by an earlier run that
-# used a DIFFERENT Path B binary (_fixed). Caching in the reference
-# script is keyed only by dataset+config, not by which binary produced
-# the number -- reusing the same directory would return old, wrong
-# timings instead of actually re-measuring with the new kernel.
+# Same methodology as runs_inference_timing of  (3 seeds x {100,500,1000} for larger datasets {amazoncat13k, amazon670k, deliciouslarge200k}
 #
 # Usage:
 #   bash run_inference_timing_stage4.sh amazoncat13k

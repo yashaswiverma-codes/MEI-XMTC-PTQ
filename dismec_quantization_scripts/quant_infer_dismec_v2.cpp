@@ -26,34 +26,6 @@
  *   - Mixed precision (per-row INT8/INT4 selection)
  *
  * -----------------------------------------------------------------
- * FIX LOG (this revision)
- * -----------------------------------------------------------------
- *   1. path_b_batch() previously had NO handling for m.mixed at all.
- *      For mixed-precision models, m.data_i8/m.data_u8/m.scales are
- *      left EMPTY by load_model() (mixed models populate data_high/
- *      data_low/scale_high/scale_low instead), so Path B would index
- *      into empty vectors -> out-of-bounds read / UB / crash.
- *      Added a dedicated "if (m.mixed)" branch that mirrors
- *      dequant_mixed()'s convention: w = sc*code - zp (per row,
- *      selecting high or low array via m.mask_high[r]).
- *
- *   2. weight_int(m, j) takes an int64_t index, but path_b_batch was
- *      calling it as weight_int(m, (int)k) / weight_int(m, (int)(start+k)),
- *      silently truncating to 32 bits. For datasets where total nnz
- *      exceeds INT32_MAX (Amazon-3M is explicitly called out in this
- *      file's own header as needing int64 indices/indptr), this wraps
- *      around and reads the WRONG weight. Removed the (int) casts so
- *      the full int64_t index is passed through, matching how
- *      dequant_standard() already does it in Path A.
- *
- * NOTE (not fixed here, flagging for follow-up):
- *   path_b_batch's non-mixed/asymmetric branch still does not apply
- *   m.zero_points[] at all (weight_int() returns the raw unsigned code
- *   with no zp term, whereas dequant_standard() computes
- *   code*sc + zp for asymmetric weights). Any row_asym/group_asym +
- *   --act_quant combination will silently disagree with Path A until
- *   that is addressed separately.
- * -----------------------------------------------------------------
  *
  * Build:
  *   g++ -O3 -march=native -funroll-loops -ffast-math \
